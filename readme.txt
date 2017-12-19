@@ -1,6 +1,7 @@
 === Disable Author Pages ===
 
 Contributors: littlebizzy
+Donate link: https://www.patreon.com/littlebizzy
 Tags: disable, remove, author, pages, archives
 Requires at least: 4.4
 Tested up to: 4.9
