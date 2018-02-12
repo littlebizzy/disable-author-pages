@@ -5,7 +5,7 @@ Donate link: https://www.patreon.com/littlebizzy
 Tags: disable, remove, author, pages, archives
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Multisite support: No
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
