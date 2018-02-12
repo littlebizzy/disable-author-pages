@@ -15,6 +15,14 @@ Prefix: DATPGS
 require_once dirname(__FILE__).'/admin-notices.php';
 DATPGS_Admin_Notices::instance(__FILE__);
 
+/**
+ * Admin Notices MultiSite check
+ * Uncomment the "//return;" line to disable this plugin on multiste installs
+ */
+require_once dirname(__FILE__).'/admin-notices-ms.php';
+if (false !== \LittleBizzy\DisableAuthorPages\Admin_Notices_MS::instance(__FILE__)) {
+	//return;
+}
 
 /**
  * Define main plugin class
