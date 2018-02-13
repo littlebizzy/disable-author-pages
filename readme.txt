@@ -172,6 +172,10 @@ Please avoid leaving negative reviews in order to get a feature implemented. Ins
 
 == Changelog ==
 
+= 1.0.4 =
+* added warning for Multisite installations
+* updated recommended plugins
+
 = 1.0.3 =
 * tested with WP 4.9
 * added support for `define('DISABLE_NAG_NOTICES', true);`
