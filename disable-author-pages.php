@@ -2,27 +2,16 @@
 /*
 Plugin Name: Disable Author Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-author-pages
-Description: Completely disables author archives which then become 404 errors, converts author links to homepage links, and works with or without fancy permalinks.
-Version: 1.1.0
+Description: Disables author pages and links
+Version: 1.2.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+GitHub Plugin URI: littlebizzy/disable-author-pages
+Primary Branch: master
 Prefix: DATPGS
 */
-
-// Admin Notices module
-require_once dirname(__FILE__).'/admin-notices.php';
-DATPGS_Admin_Notices::instance(__FILE__);
-
-/**
- * Admin Notices MultiSite check
- * Uncomment the "//return;" line to disable this plugin on multiste installs
- */
-require_once dirname(__FILE__).'/admin-notices-ms.php';
-if (false !== \LittleBizzy\DisableAuthorPages\Admin_Notices_MS::instance(__FILE__)) {
-	//return;
-}
 
 /**
  * Define main plugin class
