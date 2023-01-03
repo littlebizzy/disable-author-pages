@@ -4,6 +4,9 @@ Disables author pages and links
 
 ## Changelog
 
+### 1.2.1
+- added disable wordpress.org snippet
+
 ### 1.2.0
 - support for Git Updater
 - removed all admin notices
