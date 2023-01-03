@@ -4,6 +4,11 @@ Disables author pages and links
 
 ## Changelog
 
+### 1.2.0
+- support for Git Updater
+- removed all admin notices
+- simpler plugin structure
+
 ### 1.1.0
 - tested with WP 5.0
 - updated plugin meta
