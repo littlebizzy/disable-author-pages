@@ -3,13 +3,14 @@
 Plugin Name: Disable Author Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-author-pages
 Description: Disables author pages and links
-Version: 1.2.1
+Version: 1.3.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 GitHub Plugin URI: littlebizzy/disable-author-pages
 Primary Branch: master
+Tested up to: 6.5
 Prefix: DATPGS
 */
 
