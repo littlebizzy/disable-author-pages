@@ -4,6 +4,10 @@ Disables author pages and links
 
 ## Changelog
 
+### 1.3.0
+- tested with WP 6.5
+- forced version update
+
 ### 1.2.1
 - added disable wordpress.org snippet
 
