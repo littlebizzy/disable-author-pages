@@ -4,6 +4,16 @@ Disables author pages and links
 
 ## Changelog
 
+### 2.0.0
+- completely refactored to WordPress standards
+- more robust 404 error on author pages now including author feeds and any author numeration attempts 
+- author links now disabled instead of converting them to homepage links
+- author feed links now removed from header
+- author sitemaps now disabled in WP Core XML sitemaps
+- direct access to author.php now disabled
+- supports PHP 7.0 to 8.3
+- supports Multisite
+
 ### 1.3.0
 - tested with WP 6.5
 - forced version update
