@@ -56,9 +56,6 @@ add_filter('wp_sitemaps_add_provider', function ($provider, $name) {
     return $provider;
 }, 10, 2);
 
-// Disable comments author links
-add_filter('get_comment_author_link', '__return_empty_string', 99);
-
 // Block direct access to author.php template
 add_action('template_include', function ($template) {
     if (basename($template) == 'author.php') {
