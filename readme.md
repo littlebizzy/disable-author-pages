@@ -4,6 +4,9 @@ Disables author pages and links
 
 ## Changelog
 
+### 2.0.1
+- ensure `404.php` template used for any 404 errors
+
 ### 2.0.0
 - completely refactored to WordPress standards
 - more robust 404 error on author pages now including author feeds and any author numeration attempts 
