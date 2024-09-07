@@ -4,7 +4,7 @@
 Plugin Name: Disable Author Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-author-pages
 Description: Disables author pages and links
-Version: 2.0.0
+Version: 2.0.1
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
@@ -25,21 +25,25 @@ add_filter('gu_override_dot_org', function ($overrides) {
     return $overrides;
 });
 
-// Disable author pages by returning a 404 status
+// Disable author pages by returning a 404 status and letting WordPress handle the template
 add_action('template_redirect', function () {
+    // Check if the request is not in the admin area and is trying to load an author page
     if (!is_admin() && (is_author() || (isset($_GET['author']) && $_GET['author']))) {
         global $wp_query;
+        // Set a 404 status for the request
         $wp_query->set_404();
         status_header(404);
         nocache_headers();
-        exit;
+        // Load the 404 template and stop further execution
+        include(get_query_template('404'));
+        exit;  // Exit to prevent further processing
     }
 }, 1);
 
 // Disable author links
 add_filter('author_link', '__return_false', 99);
 add_filter('the_author_posts_link', function () {
-    return ''; // Return an empty string to remove any link
+    return ''; // Return an empty string to remove any author link
 }, 99);
 
 // Remove only author-specific feed link from the head
@@ -56,12 +60,17 @@ add_filter('wp_sitemaps_add_provider', function ($provider, $name) {
     return $provider;
 }, 10, 2);
 
-// Block direct access to author.php template
+// Block direct access to author.php template and load WordPress's 404 page
 add_action('template_include', function ($template) {
+    // Check if the template being loaded is author.php
     if (basename($template) == 'author.php') {
+        global $wp_query;
+        // Set a 404 status for the request
+        $wp_query->set_404();
         status_header(404);
         nocache_headers();
-        exit;
+        // Return the 404 template to let WordPress handle it
+        return get_query_template('404');  // No need for exit, as returning the template is enough
     }
     return $template;
 });
