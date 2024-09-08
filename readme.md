@@ -4,6 +4,9 @@ Disables author pages and links
 
 ## Changelog
 
+### 2.0.2
+- fixed `gu_override_dot_org` snippet
+
 ### 2.0.1
 - ensure `404.php` template used for any 404 errors
 
