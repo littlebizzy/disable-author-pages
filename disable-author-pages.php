@@ -4,7 +4,7 @@
 Plugin Name: Disable Author Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-author-pages
 Description: Disables author pages and links
-Version: 2.0.1
+Version: 2.0.2
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
@@ -21,7 +21,7 @@ if (!defined('ABSPATH')) {
 
 // Disable WordPress.org updates for this plugin
 add_filter('gu_override_dot_org', function ($overrides) {
-    $overrides['disable-author-pages/disable-author-pages.php'] = true;
+    $overrides[] = 'disable-author-pages/disable-author-pages.php';
     return $overrides;
 });
 
