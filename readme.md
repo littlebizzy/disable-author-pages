@@ -4,6 +4,9 @@ Disables author pages and links
 
 ## Changelog
 
+### 2.0.4
+- added `Requires PHP` plugin header
+
 ### 2.0.3
 - improved `gu_override_dot_org` snippet
 
