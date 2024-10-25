@@ -1,10 +1,10 @@
 <?php
-
 /*
 Plugin Name: Disable Author Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-author-pages
 Description: Disables author pages and links
-Version: 2.0.3
+Version: 2.0.4
+Requires PHP: 7.0
 Author: LittleBizzy
 Author URI: https://www.littlebizzy.com
 License: GPLv3
