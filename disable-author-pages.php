@@ -42,17 +42,17 @@ add_action('template_redirect', function () {
     }
 }, 1);
 
-// Disable author links
-add_filter('author_link', '__return_false', 99);
-add_filter('the_author_posts_link', function () {
-    return ''; // Return an empty string to remove any author link
-}, 99);
+// disable author links across wordpress
+add_filter( 'author_link', '__return_false', 99 );
+add_filter( 'get_author_posts_url', '__return_false', 99 );
+add_filter( 'the_author_posts_link', '__return_empty_string', 99 );
 
-// Remove only author-specific feed link from the head
-remove_action('wp_head', 'wp_author_feed_link');
+// remove author-specific feed link from the head
+remove_action( 'wp_head', 'wp_author_feed_link' );
 
-// Remove all filters from 'author_link' to prevent other plugins or themes from modifying author URLs.
-remove_all_filters('author_link');
+// ensure no plugin or theme modifies author urls
+remove_all_filters( 'author_link' );
+remove_all_filters( 'get_author_posts_url' );
 
 // remove users (author) sitemap from wordpress core xml sitemaps
 add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
