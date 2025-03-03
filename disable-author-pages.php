@@ -27,20 +27,17 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
     return $overrides;
 }, 999 );
 
-// Disable author pages by returning a 404 status and letting WordPress handle the template
-add_action('template_redirect', function () {
-    // Check if the request is not in the admin area and is trying to load an author page
-    if (!is_admin() && (is_author() || (isset($_GET['author']) && $_GET['author']))) {
+// disable author pages by returning a 404 status and letting wordpress handle the template
+add_action( 'template_redirect', function () {
+    if ( ! is_admin() && is_author() ) {
         global $wp_query;
-        // Set a 404 status for the request
         $wp_query->set_404();
-        status_header(404);
+        status_header( 404 );
         nocache_headers();
-        // Load the 404 template and stop further execution
-        include(get_query_template('404'));
-        exit;  // Exit to prevent further processing
+        include get_query_template( '404' );
+        exit;
     }
-}, 1);
+}, 1 );
 
 // disable author links across wordpress
 add_filter( 'author_link', '__return_false', 99 );
