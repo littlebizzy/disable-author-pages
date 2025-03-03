@@ -4,8 +4,17 @@ Disables author pages and links
 
 ## Changelog
 
+### 2.0.5
+- removed redundant `$_GET['author']` check and now handled by `is_author()`
+- now using `is_author()` instead of `basename($template)` for template blocking
+- added another `add_filter` and `remove_all_filters` instances
+- added `Tested up to` header
+- added `Update URI` header
+- added `Text Domain` header
+- various code cleanup and better formatting
+
 ### 2.0.4
-- added `Requires PHP` plugin header
+- added `Requires PHP` header
 
 ### 2.0.3
 - improved `gu_override_dot_org` snippet
