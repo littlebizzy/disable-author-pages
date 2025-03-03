@@ -62,11 +62,12 @@ add_filter('wp_sitemaps_add_provider', function ($provider, $name) {
     return $provider;
 }, 10, 2);
 
-// block direct access to author.php template
+// block all author archive templates
 add_filter( 'template_include', function ( $template ) {
-    if ( basename( $template ) === 'author.php' ) {
+    if ( is_author() ) {
         global $wp_query;
         $wp_query->set_404();
+        $wp_query->is_404 = true; // ensure wordpress treats it as a 404
         status_header( 404 );
         nocache_headers();
         return get_query_template( '404' );
