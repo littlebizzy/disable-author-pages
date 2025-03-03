@@ -62,31 +62,28 @@ add_filter('wp_sitemaps_add_provider', function ($provider, $name) {
     return $provider;
 }, 10, 2);
 
-// Block direct access to author.php template and load WordPress's 404 page
-add_action('template_include', function ($template) {
-    // Check if the template being loaded is author.php
-    if (basename($template) == 'author.php') {
+// block direct access to author.php template
+add_filter( 'template_include', function ( $template ) {
+    if ( basename( $template ) === 'author.php' ) {
         global $wp_query;
-        // Set a 404 status for the request
         $wp_query->set_404();
-        status_header(404);
+        status_header( 404 );
         nocache_headers();
-        // Return the 404 template to let WordPress handle it
-        return get_query_template('404');  // No need for exit, as returning the template is enough
+        return get_query_template( '404' );
     }
     return $template;
-});
+} );
 
-// Remove author links from REST API responses, but keep other author details
-add_filter('rest_prepare_post', function ($response, $post, $request) {
+// remove only author links from rest api responses
+add_filter( 'rest_prepare_post', function ( $response, $post, $request ) {
     $data = $response->get_data();
-    
-    if (isset($data['_links']['author'])) {
-        unset($data['_links']['author']); // Remove only the author link
+
+    if ( isset( $data['_links']['author'] ) ) {
+        unset( $data['_links']['author'] ); // remove only the author link
     }
 
-    $response->set_data($data);
+    $response->set_data( $data );
     return $response;
-}, 10, 3);
+}, 10, 3 );
 
 // Ref: ChatGPT
