@@ -4,6 +4,10 @@ Disables author pages and links
 
 ## Changelog
 
+### 3.0.0
+- author pages now 301 redirect to homepage instead of returning 404 errors
+- removed redundant `template_include` override now that 301 is used
+
 ### 2.0.5
 - removed redundant `$_GET['author']` check and now handled by `is_author()`
 - now using `is_author()` instead of `basename($template)` for template blocking
