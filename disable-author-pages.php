@@ -3,7 +3,7 @@
 Plugin Name: Disable Author Pages
 Plugin URI: https://www.littlebizzy.com/plugins/disable-author-pages
 Description: Disables author pages and links
-Version: 2.0.5
+Version: 3.0.0
 Requires PHP: 7.0
 Tested up to: 6.7
 Author: LittleBizzy
@@ -27,14 +27,10 @@ add_filter( 'gu_override_dot_org', function( $overrides ) {
     return $overrides;
 }, 999 );
 
-// disable author pages by returning a 404 status and letting wordpress handle the template
+// redirect all author archive pages to homepage with a 301 status
 add_action( 'template_redirect', function () {
     if ( ! is_admin() && is_author() ) {
-        global $wp_query;
-        $wp_query->set_404();
-        status_header( 404 );
-        nocache_headers();
-        include get_query_template( '404' );
+        wp_safe_redirect( home_url(), 301 );
         exit;
     }
 }, 1 );
@@ -58,19 +54,6 @@ add_filter( 'wp_sitemaps_add_provider', function ( $provider, $name ) {
     }
     return $provider;
 }, 10, 2 );
-
-// block all author archive templates
-add_filter( 'template_include', function ( $template ) {
-    if ( is_author() ) {
-        global $wp_query;
-        $wp_query->set_404();
-        $wp_query->is_404 = true; // ensure wordpress treats it as a 404
-        status_header( 404 );
-        nocache_headers();
-        return get_query_template( '404' );
-    }
-    return $template;
-} );
 
 // remove only author links from rest api responses
 add_filter( 'rest_prepare_post', function ( $response, $post, $request ) {
